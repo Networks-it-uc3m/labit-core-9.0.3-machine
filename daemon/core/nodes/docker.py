@@ -165,11 +165,12 @@ class DockerNode(CoreNode):
                 )
             # normalize hostname
             hostname = self.name.replace("_", "-")
-            # create container and retrieve the created containers PID
+            # create container and retrieve the created containers PID. Added x11 volume to leverage containers GUI
             self.host_cmd(
                 f"{DOCKER} run -td --init --net=none --hostname {hostname} "
                 f"--name {self.name} --sysctl net.ipv6.conf.all.disable_ipv6=0 "
                 f"{binds} {volumes} "
+                f"--volume /tmp/.X11-unix:/tmp/.X11-unix "
                 f"--privileged {self.image} tail -f /dev/null"
             )
             # retrieve pid and process environment for use in nsenter commands
