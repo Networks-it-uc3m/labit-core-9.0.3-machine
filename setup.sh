@@ -8,7 +8,12 @@ if [ -z "${NO_SYSTEM}" ]; then
   if command -v apt &> /dev/null
   then
     echo "setup to install CORE using apt"
+    sudo apt update
     sudo apt install -y ${PYTHON_DEP}-pip ${PYTHON_DEP}-venv
+    # adding ubuntu reqs
+    sudo apt install -y ca-certificates git sudo wget tzdata libpcap-dev libpcre3-dev \
+    libprotobuf-dev libxml2-dev protobuf-compiler unzip uuid-dev iproute2 iputils-ping \
+    tcpdump
   elif command -v yum &> /dev/null
   then
     echo "setup to install CORE using yum"
@@ -26,3 +31,6 @@ ${PYTHON} -m pipx ensurepath
 export PATH=$PATH:~/.local/bin
 pipx install invoke==1.4.1
 pipx install poetry==1.2.1
+
+# invoke the core installation
+inv install 
