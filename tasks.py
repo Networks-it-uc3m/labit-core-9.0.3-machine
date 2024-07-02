@@ -443,14 +443,15 @@ def install(
         install_poetry(c, dev, local, hide)
     with p.start("installing scripts, examples, and configuration"):
         install_core_files(c, local, hide, prefix)
-    with p.start("creating core gui launcher"):
-        create_launcher_gui(c, hide)
     with p.start("installing systemd service"):
         install_service(c, hide, venv_path)
     if ospf:
         with p.start("installing ospf mdr"):
             install_ospf_mdr(c, os_info, hide)
     print("\ninstall complete!")
+    # Included at the end to avoid conflicts in case of not having desktop env
+    with p.start("creating core gui launcher"):
+        create_launcher_gui(c, hide)
 
 
 @task(

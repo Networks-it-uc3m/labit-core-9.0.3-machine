@@ -34,3 +34,7 @@ pipx install poetry==1.2.1
 
 # invoke the core installation
 inv install 
+
+# Add this to inclue core bins in PATH
+echo 'export PATH="$PATH:/opt/core/venv/bin"' >> $HOME/.bashrc
+
