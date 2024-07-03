@@ -18,7 +18,7 @@ for package in "${apt_packages[@]}"; do
             sudo systemctl disable $package
         # Enabling non-root user to sniff traffic
         elif [ "$package" = "wireshark" ]; then
-            sudo usermod -a -G wireshark $LOCAL_USER
+            sudo usermod -a -G wireshark $USER
         fi
     else
         echo "-- Error al instalar el paquete $package."
