@@ -10,10 +10,10 @@ if [ -z "${NO_SYSTEM}" ]; then
     echo "setup to install CORE using apt"
     sudo apt update
     sudo apt install -y ${PYTHON_DEP}-pip ${PYTHON_DEP}-venv
-    # adding ubuntu reqs
+    # adding pre-reqs for ubuntu 
     sudo apt install -y ca-certificates git sudo wget tzdata libpcap-dev libpcre3-dev \
     libprotobuf-dev libxml2-dev protobuf-compiler unzip uuid-dev iproute2 iputils-ping \
-    tcpdump
+    tcpdump x11-xserver-utils
   elif command -v yum &> /dev/null
   then
     echo "setup to install CORE using yum"
@@ -35,6 +35,7 @@ pipx install poetry==1.2.1
 # invoke the core installation
 inv install 
 
-# Add this to inclue core bins in PATH
+# Add this to inclue core bins in PATH and enable container GUI
 echo 'export PATH="$PATH:/opt/core/venv/bin"' >> $HOME/.bashrc
+echo 'xhost + >> /dev/null' >> $HOME/.bashrc
 
