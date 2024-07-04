@@ -376,7 +376,7 @@ def create_launcher_gui(c, verbose=False, prefix=HOME_PATH):
         service_data = inspect.cleandoc(f"""
             [Desktop Entry]
             Name=Common Open Research Emulator
-            Exec={bin_dir}/core-gui
+            Exec=bash -c "xhost + >> /dev/null && {bin_dir}/core-gui"
             Type=Application
             Icon={icon_path}
             """)

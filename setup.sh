@@ -37,5 +37,5 @@ inv install
 
 # Add this to inclue core bins in PATH and enable container GUI
 echo 'export PATH="$PATH:/opt/core/venv/bin"' >> $HOME/.bashrc
-echo 'xhost + >> /dev/null' >> $HOME/.bashrc
+
 
