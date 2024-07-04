@@ -15,7 +15,9 @@ about this can be found in the follwing link: (http://labit.lab.it.uc3m.es/en/ve
 git clone https://github.com/Networks-it-uc3m/labit-core-9.0.3-machine.git
 cd labit-core-9.0.3-machine
 # install dependencies and run installation tasks
-./setup.sh 2>&1 | tee installation_log.txt
+./setup.sh 2>&1 | tee installation.log
+# once CORE is installed successfully, install docker and other labit artifacts (such as wireshark, vlc, etc.)
+./post-install.sh | tee post_installation.log
 ```
 > **NOTES:** 
 > The installation process may take a long time, so be patient. Consider restarting the computer once the installation is complete.
