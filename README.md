@@ -17,7 +17,7 @@ cd labit-core-9.0.3-machine
 # install dependencies and run installation tasks
 ./setup.sh 2>&1 | tee installation.log
 # once CORE is installed successfully, install docker and other labit artifacts (such as wireshark, vlc, etc.)
-./post-install.sh | tee post_installation.log
+./post-install.sh 2>&1 | tee post_installation.log
 ```
 > **NOTES:** 
 > The installation process may take a long time, so be patient. Consider restarting the computer once the installation is complete.
