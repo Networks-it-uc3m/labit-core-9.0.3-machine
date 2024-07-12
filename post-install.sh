@@ -55,7 +55,7 @@ echo "- Installation of Docker for CORE: Done!"
 echo "+ Creating image to be used in CORE as default..."
 img_dev="$HOME/devops/docker-images/ubuntu"
 mkdir -p $img_dev
-echo -e 'FROM ubuntu:latest\nRUN apt-get update\nRUN apt-get install -y iproute2 ethtool gedit sudo iputils-ping' | tee $img_dev/Dockerfile
+echo -e 'FROM ubuntu:latest\nRUN apt-get update\nRUN apt-get install -y iproute2 ethtool gedit sudo iputils-ping nano vlc' | tee $img_dev/Dockerfile
 sudo docker build --network host -t ubuntu:latest $img_dev
 echo "- Creation of docker image ubuntu:latest -> Done!"
 
